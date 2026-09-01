@@ -27,21 +27,22 @@
   <h1 class="sub" style="margin:22px 0 20px">Start a<br>conversation.</h1>
   <p class="lede muted">Kamb works with founders, investors, operators and businesses where
   there is a compelling opportunity to build something significant.</p></div></section>
-<section class="on-black"><div class="wrap rv">
-  <p class="over" style="margin-bottom:18px">For corporate, investment and partnership
+<section class="on-black" style="padding-top:clamp(48px,6vw,86px);
+   padding-bottom:clamp(48px,6vw,86px)"><div class="wrap rv" style="text-align:center">
+  <p class="over" style="margin-bottom:16px">For corporate, investment and partnership
   enquiries</p>
-  <a class="mail" href="mailto:hello@kamb.co.za">hello@kamb.co.za</a>
+  <a class="mail" href="mailto:communications@kamb.co.za">communications@kamb.co.za</a>
 </div></section>
 
-<section class="on-bone"><div class="wrap rv">
+<section class="on-bone"><div class="wrap rv" style="text-align:center">
   <div class="head" style="margin-bottom:0">
     <span class="over">Write to us</span>
     <h2>Send it here.</h2>
-    <p class="lede muted">Kamb is a holding company and does not itself provide services.
-    Enquiries about services are handled by the operating companies.</p>
+    <p class="lede muted" style="margin:0 auto">Kamb is a holding company and does not itself
+    provide services. Enquiries about services are handled by the operating companies.</p>
   </div>
   
-<form class="form" id="enq" novalidate>
+<form class="form form-centred" id="enq" novalidate>
   <div class="field"><label for="f-name">Name</label>
     <input id="f-name" name="name" type="text" autocomplete="name" required></div>
   <div class="field"><label for="f-email">Email</label>
@@ -98,13 +99,13 @@
           btn.disabled = false;
           msg.className = 'form-msg err';
           msg.textContent = (res.body && res.body.error) ||
-            'We could not send that. Try again, or write to hello@kamb.co.za.';
+            'We could not send that. Try again, or write to communications@kamb.co.za.';
         }
       })
       .catch(function(){
         btn.disabled = false;
         msg.className = 'form-msg err';
-        msg.textContent = 'We could not reach the server. Write to hello@kamb.co.za.';
+        msg.textContent = 'We could not reach the server. Write to communications@kamb.co.za.';
       });
   });
 })();
