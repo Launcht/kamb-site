@@ -92,8 +92,8 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
   padding:clamp(56px,9vw,120px) var(--pad);overflow:hidden}
 .bleed>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .bleed::after{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(10,10,10,.62) 0%,rgba(10,10,10,.24) 38%,
-    rgba(10,10,10,.52) 74%,rgba(10,10,10,.88) 100%)}
+  background:linear-gradient(180deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.46) 38%,
+    rgba(10,10,10,.70) 74%,rgba(10,10,10,.96) 100%)}
 .bleed .wrap{width:100%}
 /* The light variant. Same photograph, a bone wash instead of a black one, and the type
    inverts with it. The header has to invert too or the nav disappears into the sky - see
@@ -106,7 +106,7 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
 .bleed.light .dev-rule{background:var(--stone)}
 .bleed-tall{min-height:min(100svh,980px);align-items:flex-end}
 .bleed-tall::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(90deg,rgba(10,10,10,.78) 0%,rgba(10,10,10,.42) 42%,
+  background:linear-gradient(90deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.62) 42%,
     rgba(10,10,10,0) 72%)}
 @media (max-width:719px){.bleed-tall::before{background:rgba(10,10,10,.42)}}
 .bleed-mid{min-height:min(66svh,680px);align-items:flex-end}
