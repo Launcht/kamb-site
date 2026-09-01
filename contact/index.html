@@ -19,7 +19,7 @@
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap bar">
-  <a href="../" aria-label="Kamb, home"><img class="logo" src="../assets/kamb-block-on-dark.svg" alt="Kamb" width="40" height="40"></a>
+  <a class="brand" href="../" aria-label="Kamb, home"><img class="logo" src="../assets/kamb-wordmark-on-dark.svg" alt="Kamb" width="132" height="40"></a>
   <nav aria-label="Primary"><a href="../">Home</a><a href="../portfolio/">Portfolio</a><a href="../approach/">Approach</a><a href="../about/">About</a><a href="../contact/" aria-current="page">Contact</a></nav>
 </div></header>
 <main id="main"><section class="bleed bleed-mid on-black"><img src="../assets/img/band-connection-2400.jpg" srcset="../assets/img/band-connection-1400.jpg 1400w, ../assets/img/band-connection-2400.jpg 2400w" sizes="100vw" width="2400" height="1350" alt="Bridge cables running to a tower, seen from directly below." decoding="async" loading="lazy"><div class="wrap">
@@ -34,18 +34,89 @@
 </div></section>
 
 <section class="on-bone"><div class="wrap rv">
-  <div class="head">
-    <span class="over">Operating companies</span>
-    <h2>Enquiries about<br>services go here.</h2>
-    <p class="lede muted">Kamb is a holding company and does not itself provide services. Each
-    operating company handles its own market.</p>
+  <div class="head" style="margin-bottom:0">
+    <span class="over">Write to us</span>
+    <h2>Send it here.</h2>
+    <p class="lede muted">Kamb is a holding company and does not itself provide services.
+    Enquiries about services are handled by the operating companies.</p>
   </div>
-  <dl style="margin:0"><div class="adv"><dt>AI &amp; Automation</dt><dd>ParallaxAi</dd></div><div class="adv"><dt>Marketing &amp; Digital</dt><dd>Assay House</dd></div><div class="adv"><dt>Product Development</dt><dd>LAUNCHT</dd></div><div class="adv"><dt>AI Education &amp; Talent</dt><dd>Proving Grounds</dd></div></dl>
+  
+<form class="form" id="enq" novalidate>
+  <div class="field"><label for="f-name">Name</label>
+    <input id="f-name" name="name" type="text" autocomplete="name" required></div>
+  <div class="field"><label for="f-email">Email</label>
+    <input id="f-email" name="email" type="email" autocomplete="email" required></div>
+  <div class="field"><label for="f-company">Company</label>
+    <input id="f-company" name="company" type="text" autocomplete="organization"></div>
+  <div class="field"><label for="f-message">What is this about</label>
+    <textarea id="f-message" name="message" required></textarea></div>
+  <div class="hp" aria-hidden="true">
+    <label for="f-url">Leave this empty</label>
+    <input id="f-url" name="company_website_url" type="text" tabindex="-1"
+           autocomplete="off"></div>
+  <button type="submit">Send enquiry</button>
+  <p class="form-msg" id="enq-msg" role="status" aria-live="polite"></p>
+  <p class="form-note">We hold your message and your address only to reply to it. We add you
+  to no list and pass your details to nobody.</p>
+</form>
+<script>
+(function(){
+  var f = document.getElementById('enq'), msg = document.getElementById('enq-msg');
+  if (!f) return;
+  var opened = Date.now();
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = f.querySelector('button'), d = new FormData(f);
+    var payload = {
+      name: (d.get('name')||'').trim(),
+      email: (d.get('email')||'').trim(),
+      company: (d.get('company')||'').trim(),
+      message: (d.get('message')||'').trim(),
+      company_website_url: d.get('company_website_url') || '',
+      elapsed_ms: Date.now() - opened,
+      consent_marketing: false,
+      source_page: 'kamb.co.za/contact',
+      referrer: document.referrer || undefined
+    };
+    if (!payload.name || !payload.email || !payload.message) {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Name, email and a line about what this is about, please.';
+      return;
+    }
+    btn.disabled = true; msg.className = 'form-msg'; msg.textContent = 'Sending...';
+    fetch('https://pntqrwahxmnarhonsjkq.supabase.co/functions/v1/submit-launcht-lead', {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.json().catch(function(){ return {}; })
+        .then(function(b){ return { ok: r.ok, body: b }; }); })
+      .then(function(res){
+        if (res.ok && res.body && res.body.ok === true) {
+          f.querySelectorAll('input,textarea,button').forEach(function(el){ el.disabled = true; });
+          msg.className = 'form-msg ok';
+          msg.textContent = 'Thank you. We have it and will come back to you.';
+        } else {
+          btn.disabled = false;
+          msg.className = 'form-msg err';
+          msg.textContent = (res.body && res.body.error) ||
+            'We could not send that. Try again, or write to hello@kamb.co.za.';
+        }
+      })
+      .catch(function(){
+        btn.disabled = false;
+        msg.className = 'form-msg err';
+        msg.textContent = 'We could not reach the server. Write to hello@kamb.co.za.';
+      });
+  });
+})();
+</script>
 </div></section>
 </main>
 <footer class="site"><div class="wrap">
-  <img class="foot-mark" src="../assets/kamb-pillars-on-dark.svg"
-       alt="Kamb: vision, focus, execution, impact. We build. You grow.">
+  <div class="foot-top">
+    <p class="foot-pillars">Vision. Focus.<br>Execution. Impact.</p>
+    <img class="foot-block" src="../assets/kamb-block-on-dark.svg" alt="Kamb" width="64"
+         height="64">
+  </div>
   <div class="foot-row">
     <div>
       <div class="over" style="margin-bottom:12px">Kamb Trading (Pty) Ltd</div>
