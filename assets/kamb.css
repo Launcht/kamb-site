@@ -58,7 +58,7 @@ header.site::before{content:"";position:absolute;inset:0;pointer-events:none;
   transition:opacity .45s var(--ease)}
 header.site.solid::before{opacity:0}
 body.hero-light header.site:not(.solid)::before{
-  background:linear-gradient(180deg,rgba(244,242,237,.88) 0%,rgba(244,242,237,0) 100%)}
+  background:linear-gradient(180deg,rgba(216,213,206,.92) 0%,rgba(216,213,206,0) 100%)}
 body.hero-light header.site:not(.solid) nav a{color:var(--graphite)}
 body.hero-light header.site:not(.solid) nav a:hover,
 body.hero-light header.site:not(.solid) nav a:focus-visible,
@@ -67,8 +67,9 @@ body.hero-light header.site:not(.solid) nav a[aria-current=page]{
 header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-dark);
   backdrop-filter:saturate(140%) blur(14px)}
 .bar{position:relative}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;
-  padding:16px var(--pad)}
+.bar{padding:16px var(--pad)}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:24px;
+  max-width:var(--max);margin:0 auto}
 .bar .logo{width:132px;flex:none;opacity:0;transition:opacity .45s var(--ease)}
 header.site.solid .bar .logo,.bar .brand:focus-visible .logo{opacity:1}
 .bar nav{display:flex;gap:clamp(14px,2.4vw,34px);overflow-x:auto;scrollbar-width:none;
@@ -93,28 +94,29 @@ header.site.solid .bar .logo,.bar .brand:focus-visible .logo{opacity:1}
   padding:clamp(56px,9vw,120px) var(--pad);overflow:hidden}
 .bleed>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .bleed::after{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(10,10,10,.72) 0%,rgba(10,10,10,.34) 38%,
-    rgba(10,10,10,.62) 74%,rgba(10,10,10,.94) 100%)}
+  background:linear-gradient(180deg,rgba(10,10,10,.62) 0%,rgba(10,10,10,.24) 38%,
+    rgba(10,10,10,.52) 74%,rgba(10,10,10,.88) 100%)}
 .bleed .wrap{width:100%}
 /* The light variant. Same photograph, a bone wash instead of a black one, and the type
    inverts with it. The header has to invert too or the nav disappears into the sky - see
    body.hero-light below. */
 .bleed.light{color:var(--black)}
-.bleed.light::after{background:linear-gradient(180deg,rgba(244,242,237,.90) 0%,
-  rgba(244,242,237,.74) 42%,rgba(244,242,237,.88) 100%)}
+.bleed.light::after{background:linear-gradient(180deg,rgba(216,213,206,.70) 0%,
+  rgba(216,213,206,.56) 42%,rgba(216,213,206,.72) 100%)}
 .bleed.light .over{color:var(--graphite)}
 .bleed.light .muted{color:var(--graphite)}
 .bleed.light .dev-rule{background:var(--stone)}
 .bleed-tall{min-height:min(100svh,980px);align-items:flex-end}
 .bleed-tall::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(90deg,rgba(10,10,10,.86) 0%,rgba(10,10,10,.52) 42%,
-    rgba(10,10,10,0) 74%)}
+  background:linear-gradient(90deg,rgba(10,10,10,.78) 0%,rgba(10,10,10,.42) 42%,
+    rgba(10,10,10,0) 72%)}
 @media (max-width:719px){.bleed-tall::before{background:rgba(10,10,10,.42)}}
 .bleed-mid{min-height:min(66svh,680px);align-items:flex-end}
+.bleed-deep{min-height:min(82svh,860px);align-items:flex-end}
 .bleed-mid::after{background:linear-gradient(180deg,rgba(10,10,10,.76) 0%,
   rgba(10,10,10,.40) 34%,rgba(10,10,10,.72) 76%,rgba(10,10,10,.94) 100%)}
-.bleed-mid.light::after{background:linear-gradient(180deg,rgba(244,242,237,.93) 0%,
-  rgba(244,242,237,.76) 38%,rgba(244,242,237,.86) 78%,rgba(244,242,237,.96) 100%)}
+.bleed-mid.light::after{background:linear-gradient(180deg,rgba(216,213,206,.74) 0%,
+  rgba(216,213,206,.58) 38%,rgba(216,213,206,.66) 78%,rgba(216,213,206,.78) 100%)}
 .bleed-band{min-height:min(58svh,560px);align-items:center;justify-content:flex-start}
 .bleed-band::after{background:linear-gradient(180deg,rgba(10,10,10,.58) 0%,
   rgba(10,10,10,.78) 100%)}
@@ -217,7 +219,7 @@ header.site.solid .bar .logo,.bar .brand:focus-visible .logo{opacity:1}
 .arch-top{position:relative;text-align:center;padding-bottom:52px}
 .arch-top::after{content:"";position:absolute;bottom:0;left:50%;width:1px;height:52px;
   background:var(--stone)}
-.arch-mark{width:58px;margin:0 auto 16px}
+.arch-mark{width:clamp(64px,6.4vw,86px);margin:0 auto 18px}
 .arch-row{--arch-gap:clamp(20px,3vw,48px);position:relative;display:grid;
   grid-template-columns:repeat(4,1fr);gap:var(--arch-gap);padding-top:52px}
 /* The rule has to end ON the outer stubs, and the stubs sit at the COLUMN centres, which
@@ -239,8 +241,8 @@ header.site.solid .bar .logo,.bar .brand:focus-visible .logo{opacity:1}
   font-size:clamp(1.1rem,1.7vw,1.45rem);line-height:1}
 .co-foot{padding-top:16px;border-top:1px solid var(--stone);width:100%}
 .co .over{display:block}
-.co-note{display:block;margin-top:8px;font-size:11px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--graphite);opacity:.8}
+.co-line{display:block;margin-top:12px;font-size:14px;line-height:1.45;
+  color:var(--graphite);text-wrap:balance}
 @media (max-width:719px){
   .arch-row{grid-template-columns:repeat(2,1fr);row-gap:44px;padding-top:36px}
   .arch-row::before,.co::before,.arch-top::after{display:none}
@@ -367,7 +369,7 @@ header.site.solid .bar .logo,.bar .brand:focus-visible .logo{opacity:1}
 footer.site{background:var(--black);color:var(--bone);
   padding:clamp(56px,8vw,110px) var(--pad);border-top:1px solid var(--hair-dark)}
 .foot-top{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;
-  margin-bottom:clamp(34px,5vw,60px)}
+  margin-bottom:clamp(34px,5vw,60px);padding:0 clamp(0px,4.5vw,96px)}
 .foot-pillars{font-family:var(--display);font-weight:700;letter-spacing:-0.035em;
   line-height:0.98;font-size:clamp(1.6rem,3.4vw,2.9rem);text-transform:uppercase;
   max-width:none}
@@ -394,8 +396,8 @@ footer.site{background:var(--black);color:var(--bone);
 
 @media (max-width:719px){
   .adv{grid-template-columns:1fr;gap:8px}
-  .bar{flex-direction:column;align-items:flex-start;gap:10px;padding-top:12px;
-    padding-bottom:12px}
+  .bar{padding-top:12px;padding-bottom:12px}
+  .bar-in{flex-direction:column;align-items:flex-start;gap:10px}
   .bar .logo{width:32px}
   .bar nav{flex-wrap:wrap;overflow:visible;gap:8px 18px}
   /* The wrapped nav makes the bar about 105px tall. Fixed, that is a permanent lid on a
