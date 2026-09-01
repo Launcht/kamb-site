@@ -103,7 +103,7 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
 .bleed.light{color:var(--black)}
 .bleed.light::after{background:linear-gradient(180deg,rgba(216,213,206,.70) 0%,
   rgba(216,213,206,.56) 42%,rgba(216,213,206,.72) 100%)}
-.bleed.light .over{color:var(--graphite)}
+.bleed.light .over{color:var(--black)}
 .bleed.light .muted{color:var(--graphite)}
 .bleed.light .dev-rule{background:var(--stone)}
 .bleed-tall{min-height:min(100svh,980px);align-items:flex-end}
@@ -115,8 +115,8 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
 .bleed-deep{min-height:min(82svh,860px);align-items:flex-end}
 .bleed-mid::after{background:linear-gradient(180deg,rgba(10,10,10,.76) 0%,
   rgba(10,10,10,.40) 34%,rgba(10,10,10,.72) 76%,rgba(10,10,10,.94) 100%)}
-.bleed-mid.light::after{background:linear-gradient(180deg,rgba(216,213,206,.74) 0%,
-  rgba(216,213,206,.58) 38%,rgba(216,213,206,.66) 78%,rgba(216,213,206,.78) 100%)}
+.bleed-mid.light::after{background:linear-gradient(180deg,rgba(216,213,206,.10) 0%,
+  rgba(216,213,206,.04) 45%,rgba(216,213,206,.16) 100%)}
 .bleed-band{min-height:min(58svh,560px);align-items:center;justify-content:flex-start}
 .bleed-band::after{background:linear-gradient(180deg,rgba(10,10,10,.58) 0%,
   rgba(10,10,10,.78) 100%)}
@@ -172,6 +172,14 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
 .pil p{color:var(--stone);font-size:14px}
 .pil .dev{margin-bottom:14px}
 .pil .dev .over{color:rgba(244,242,237,.82)}
+
+/* The pillar blocks on Approach run their pictures a little smaller than the portfolio
+   blocks do - the text beside them is longer, and a full-width figure made the pair feel
+   top heavy. */
+.ed.pillar-ed .ed-fig{max-width:84%}
+.ed.pillar-ed:not(.flip) .ed-fig{margin-right:auto}
+.ed.pillar-ed.flip .ed-fig{margin-left:auto}
+@media (max-width:719px){.ed.pillar-ed .ed-fig{max-width:100%}}
 
 /* --- editorial block: one picture, one column of words, alternating --------- */
 .ed{display:grid;gap:clamp(24px,4vw,64px);align-items:center;
