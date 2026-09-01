@@ -24,10 +24,10 @@ section{padding:clamp(64px,10vw,150px) var(--pad)}
 .on-stone{background:var(--stone);color:var(--black)}
 .on-stone.textured{position:relative;isolation:isolate;overflow:hidden}
 .on-stone.textured>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  z-index:-2;opacity:.30;filter:grayscale(1) brightness(1.9) contrast(.55)}
+  z-index:-2;opacity:.55;filter:grayscale(1) brightness(1.32) contrast(.72)}
 .on-stone.textured::after{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(216,213,206,.62) 0%,rgba(216,213,206,.44) 50%,
-    rgba(216,213,206,.7) 100%)}
+  background:linear-gradient(180deg,rgba(216,213,206,.58) 0%,rgba(216,213,206,.46) 45%,
+    rgba(216,213,206,.60) 100%)}
 .on-stone .muted{color:var(--black)}
 .on-stone .over{color:var(--graphite)}
 .on-stone .dev-rule{background:var(--graphite)}
