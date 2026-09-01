@@ -227,14 +227,14 @@ header.site.solid .bar .logo,.bar .brand:focus-visible .logo{opacity:1}
 .mv-img{aspect-ratio:4/5;overflow:hidden}
 .mv-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
 .mv:hover .mv-img img{transform:scale(1.05)}
-.mv-txt{aspect-ratio:4/5;background:var(--bone);color:var(--black);
+.mv-txt{aspect-ratio:4/5;background:var(--stone);color:var(--black);
   padding:clamp(16px,1.5vw,24px);display:flex;flex-direction:column;
   justify-content:space-between}
 .mv-txt .dev{margin-bottom:0}
-.mv-txt .dev-rule{background:var(--stone)}
+.mv-txt .dev-rule{background:var(--graphite)}
 .mv-txt .over{color:var(--graphite)}
 .mv-txt h3{text-transform:uppercase;margin-bottom:10px}
-.mv-txt p{font-size:14px;line-height:1.5;color:var(--graphite)}
+.mv-txt p{font-size:14px;line-height:1.5;color:var(--black)}
 @media (max-width:1100px){.moves{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:719px){
   .moves{grid-template-columns:repeat(2,1fr)}
