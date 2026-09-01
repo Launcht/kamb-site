@@ -68,10 +68,8 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
   backdrop-filter:saturate(140%) blur(14px)}
 .bar{position:relative}
 .bar{padding:16px var(--pad)}
-.bar-in{display:flex;align-items:center;justify-content:space-between;gap:24px;
+.bar-in{display:flex;align-items:center;justify-content:flex-end;gap:24px;
   max-width:var(--max);margin:0 auto}
-.bar .logo{width:132px;flex:none;opacity:0;transition:opacity .45s var(--ease)}
-header.site.solid .bar .logo,.bar .brand:focus-visible .logo{opacity:1}
 .bar nav{display:flex;gap:clamp(14px,2.4vw,34px);overflow-x:auto;scrollbar-width:none;
   -webkit-overflow-scrolling:touch}
 .bar nav::-webkit-scrollbar{display:none}
@@ -397,14 +395,12 @@ footer.site{background:var(--black);color:var(--bone);
 @media (max-width:719px){
   .adv{grid-template-columns:1fr;gap:8px}
   .bar{padding-top:12px;padding-bottom:12px}
-  .bar-in{flex-direction:column;align-items:flex-start;gap:10px}
-  .bar .logo{width:32px}
+  .bar-in{justify-content:flex-start}
   .bar nav{flex-wrap:wrap;overflow:visible;gap:8px 18px}
   /* The wrapped nav makes the bar about 105px tall. Fixed, that is a permanent lid on a
      844px screen, so on phones the header scrolls away instead. The hero loses its bleed
      to the very top edge; it keeps 92svh, which is the trade worth making. */
   header.site{position:static;background:var(--black);border-bottom-color:var(--hair-dark)}
   header.site::before{display:none}
-  .bar .logo{opacity:1;width:112px}
   .bleed-tall{min-height:min(92svh,760px)}
 }
