@@ -292,7 +292,7 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
    text much smaller, maybe even a line with dots for each process question, like a graph."
    Five nodes on one hairline. Squares rather than dots, because the brand has no rounded
    corners anywhere else and a circle here would be the only one on the site. */
-.track{--num:clamp(2rem,3.2vw,2.8rem);position:relative;display:grid;
+.track{--num:clamp(1.7rem,2.6vw,2.25rem);position:relative;display:grid;
   grid-template-columns:repeat(5,1fr);margin-top:clamp(34px,4vw,56px)}
 /* The rule runs through the MIDDLE of the numerals. Tying its offset to half the numeral's
    own font size holds that at every width, where a hand-picked pixel only held at one. */
@@ -382,7 +382,7 @@ footer.site{background:var(--black);color:var(--bone);
 .foot-top{display:flex;align-items:center;justify-content:flex-start;
   gap:clamp(22px,3vw,46px);margin-bottom:clamp(34px,5vw,60px)}
 .foot-pillars{font-family:var(--display);font-weight:700;letter-spacing:-0.035em;
-  line-height:0.98;font-size:clamp(1.6rem,3.4vw,2.9rem);text-transform:uppercase;
+  line-height:1.02;font-size:clamp(1.25rem,2.5vw,2.15rem);text-transform:uppercase;
   max-width:none}
 .foot-block{width:clamp(58px,6.2vw,82px);flex:none}
 .foot-nav{display:flex;flex-wrap:wrap;justify-content:center;
