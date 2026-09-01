@@ -112,6 +112,7 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
     rgba(10,10,10,0) 72%)}
 @media (max-width:719px){.bleed-tall::before{background:rgba(10,10,10,.42)}}
 .bleed-mid{min-height:min(66svh,680px);align-items:flex-end}
+.bleed-mid.high{align-items:center}
 .bleed-deep{min-height:min(82svh,860px);align-items:flex-end}
 .bleed-mid::after{background:linear-gradient(180deg,rgba(10,10,10,.76) 0%,
   rgba(10,10,10,.40) 34%,rgba(10,10,10,.72) 76%,rgba(10,10,10,.94) 100%)}
@@ -291,25 +292,29 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
    text much smaller, maybe even a line with dots for each process question, like a graph."
    Five nodes on one hairline. Squares rather than dots, because the brand has no rounded
    corners anywhere else and a circle here would be the only one on the site. */
-.track{position:relative;display:grid;grid-template-columns:repeat(5,1fr);
-  margin-top:clamp(34px,4vw,56px)}
-.track::before{content:"";position:absolute;top:33px;left:10%;right:10%;height:1px;
-  background:var(--hair-dark)}
+.track{--num:clamp(2rem,3.2vw,2.8rem);position:relative;display:grid;
+  grid-template-columns:repeat(5,1fr);margin-top:clamp(34px,4vw,56px)}
+/* The rule runs through the MIDDLE of the numerals. Tying its offset to half the numeral's
+   own font size holds that at every width, where a hand-picked pixel only held at one. */
+.track::before{content:"";position:absolute;top:calc(var(--num) * .5);left:10%;right:10%;
+  height:1px;background:var(--hair-dark)}
 
 .node{display:flex;flex-direction:column;align-items:center;text-align:center;
   padding:0 clamp(8px,1vw,18px)}
-.node .over{margin-bottom:16px}
-.node .pip{width:9px;height:9px;background:var(--bone);margin-bottom:22px;
-  position:relative;z-index:1}
+/* A bold numeral instead of the NN / TT device and a pip - Tarryn 01/09/2026. Five short
+   questions on one line do not need the sequence device; one glyph says it. The numeral
+   carries the section ground as its own background so it knocks a gap in the rule. */
+.node .num{font-family:var(--display);font-weight:700;letter-spacing:-0.03em;
+  font-size:var(--num);line-height:1;color:var(--bone);margin-bottom:22px;
+  position:relative;z-index:1;padding:0 16px;background:var(--black)}
 .node p{font-size:15px;line-height:1.45;color:var(--stone);max-width:22ch}
 @media (max-width:719px){
   .track{grid-template-columns:1fr;gap:0}
-  .track::before{top:0;bottom:0;left:4px;right:auto;width:1px;height:auto}
-  .node{flex-direction:row;align-items:baseline;gap:18px;text-align:left;padding:0 0 0 24px}
-  .node .over{margin:0;order:2}
-  .node .pip{position:absolute;left:0;margin:0;transform:translateY(8px)}
-  .node p{max-width:none;order:1;flex:1}
-  .node{position:relative;padding-bottom:22px}
+  .track::before{top:0;bottom:0;left:15px;right:auto;width:1px;height:auto}
+  .node{position:relative;flex-direction:row;align-items:baseline;gap:20px;text-align:left;
+    padding:0 0 26px 0}
+  .node .num{margin:0;font-size:1.6rem;min-width:32px;text-align:center;padding:0}
+  .node p{max-width:none;flex:1}
 }
 
 /* --- statement --- */
