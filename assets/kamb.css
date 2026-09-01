@@ -379,8 +379,8 @@ header.site.solid{background:rgba(10,10,10,.88);border-bottom-color:var(--hair-d
 /* --- footer --- */
 footer.site{background:var(--black);color:var(--bone);
   padding:clamp(56px,8vw,110px) var(--pad);border-top:1px solid var(--hair-dark)}
-.foot-top{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;
-  margin-bottom:clamp(34px,5vw,60px);padding:0 clamp(0px,4.5vw,96px)}
+.foot-top{display:flex;align-items:center;justify-content:flex-start;
+  gap:clamp(22px,3vw,46px);margin-bottom:clamp(34px,5vw,60px)}
 .foot-pillars{font-family:var(--display);font-weight:700;letter-spacing:-0.035em;
   line-height:0.98;font-size:clamp(1.6rem,3.4vw,2.9rem);text-transform:uppercase;
   max-width:none}
